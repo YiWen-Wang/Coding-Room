@@ -1,0 +1,37 @@
+
+
+<h1>Add Condinate</h1>
+
+<div class="info-box">
+
+    <p-autoComplete [(ngModel)]="candidateVagueName" [suggestions]="candidateList" (completeMethod)="searchCandidate($event)" field="userName" [size]="30"></p-autoComplete>
+    <p-button label="Add" (click)="addCandidate()"></p-button>
+
+    <div *ngFor="let item of addedCandidateList">
+        <div class="added-item">
+            <i class="pi pi-times" (click)="removeCandidate(item)"></i>  {{item}} 
+        </div>
+    </div>
+
+</div>
+
+
+<h1>Add Interviewer</h1>
+
+<div class="info-box">
+
+    <p-autoComplete [(ngModel)]="interviewerVagueName" [suggestions]="interviewerList" (completeMethod)="searchInterviewer($event)" field="userName" [size]="30"></p-autoComplete>
+    <p-button label="Add" (click)="addInterviewer()"></p-button>
+
+    <div *ngFor="let item of addedInterviewerList">
+        <div class="added-item">
+            <i class="pi pi-times" (click)="removeInterviewer(item)"></i>  {{item}} 
+        </div>
+    </div>
+
+</div>
+
+<div id="room-btn">
+    <p-button (click)="createInterviewRoom()" label="Create Room"></p-button>
+</div>
+

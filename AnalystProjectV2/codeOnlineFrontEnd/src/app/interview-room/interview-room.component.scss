@@ -1,0 +1,26 @@
+app-chat-room{
+    display: block;
+    height: 600px;
+}
+
+#code-run{
+    margin-left: 15px;
+}
+
+
+
+#result-box{
+    border: solid 3px green;
+    white-space: pre;
+    color: black;
+    font-size: 15px;
+    min-height: 10vh;
+    word-wrap: break-word;
+}
+
+.unable{
+    background: gray;
+    :hover{
+        cursor: not-allowed;
+    }
+}

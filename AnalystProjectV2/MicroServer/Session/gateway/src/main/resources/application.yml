@@ -1,0 +1,86 @@
+
+server:
+  port: 8008
+
+spring:
+  application:
+    name: MICROSERVICE-GATEWAY
+  redis:
+    host: 119.45.145.247
+    port: 6379
+    timeout: 1000ms
+    lettuce:
+      pool:
+        max-active: 8
+        max-wait: -1ms
+        max-idle: 8
+        min-idle: 0
+    database: 0
+    password:
+    jackson:
+      date-format: yyyy-MM-dd
+      time-zone: GMT+8
+      serialization:
+        write-dates-as-timestamps: false
+  datasource:
+    url: jdbc:mysql://119.45.145.247:3306/codeOnlineDataBase?serverTimezone=UTC
+    dbcp2.validation-query: select 1
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: wangyiwen
+    password: wwyyww5552425.
+    hikari:
+      max-lifetime: 3000
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: false
+          #开启小写验证，默认feign根据服务名查找都是用的全大写
+          lowerCaseServiceId: true
+      routes:
+        - id: user-service
+          uri: lb://MICROSERVICE-USER/
+          predicates:
+            - Path=/user/**
+          filters:
+            - StripPrefix=1
+        # Real time connector
+        - id: websocket-service
+          uri: lb://MICROSERVICE-WEBSOCKET/
+          predicates:
+            - Path=/socket/**
+          filters:
+            - StripPrefix=1
+
+        # python runner
+        - id: websocket-service
+          uri: lb://MICROSERVICE-PYTHONRUNNER/
+          predicates:
+            - Path=/pythonRunner/**
+          filters:
+            - StripPrefix=1
+
+        # codes real-time sharing
+        - id: websocket-service
+          uri: lb://MICROSERVICE-CODESOCKET/
+          predicates:
+            - Path=/codeSharing/**
+          filters:
+            - StripPrefix=1
+
+        # java runner
+        - id: websocket-service
+          uri: lb://MICROSERVICE-JAVARUNNER/
+          predicates:
+            - Path=/javaRunner/**
+          filters:
+            - StripPrefix=1
+
+eureka:
+  instance:
+    preferIpAddress: true
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+  client:
+    service-url:
+      defaultZone: http://119.45.145.247:8003/eureka
+

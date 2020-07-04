@@ -1,0 +1,21 @@
+/* Add application styles & imports to this file! */
+@import '~codemirror/lib/codemirror.css';
+@import '~codemirror/theme/idea.css';
+@import '~codemirror/addon/fold/foldgutter.css';
+@import '~codemirror/addon/lint/lint.css';
+@import '~codemirror/theme/blackboard.css';
+@import '~codemirror/addon/hint/show-hint.css';
+
+.CodeMirror {
+    /* Set height, width, borders, and global font properties here */
+    font-family: monospace;
+    color: black;
+    direction: ltr;
+    width: 100%;
+    height: 65vh;
+  }
+
+  .p-button{
+    display: block;
+  }
+  

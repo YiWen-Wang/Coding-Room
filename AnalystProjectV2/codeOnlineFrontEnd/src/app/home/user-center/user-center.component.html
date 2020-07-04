@@ -1,0 +1,34 @@
+<div>
+    <p-tabView>
+        <p-tabPanel header="My Interview">
+
+            <!--my interview-->
+            <p-card header="Interview" subheader="Subheader" [style]="{width: '360px'}" styleClass="ui-card-shadow" *ngFor="let room of rooms">
+                <p-header>
+                    <img src="Card" src="../../../assets/images/interviewCard.png">
+                </p-header>
+
+                <div>
+                    <div> Room Id: {{room.roomId}} </div>
+                    <div> Room Name: {{room.roomName}}</div>
+                    <div> Owner: {{room.owner.userName}}</div>
+                    <div> Interviewee: {{room.editor.userName}}</div>
+                </div>
+                
+                <p-footer>
+                    <button pButton type="button" label="Join" icon="pi pi-check" style="margin-right: .25em" (click) = "joinInterview(room.roomId)" ></button>
+                </p-footer>
+            </p-card>
+            
+        </p-tabPanel>
+
+
+
+        <p-tabPanel header="Create Interview" *ngIf="isAdmin()">
+            
+            <app-interview-creator></app-interview-creator>
+
+        </p-tabPanel>
+    </p-tabView>
+    
+</div>

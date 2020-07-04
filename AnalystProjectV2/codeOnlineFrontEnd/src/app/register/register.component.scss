@@ -1,0 +1,58 @@
+.login-item{
+    margin-bottom: 3vh;
+}
+
+.login-btn{
+    display: block;
+    width: 100%;
+    background:#2B91D5;
+    line-height: 2;
+    color: white;
+    text-align: center;
+    border-radius: 2px;
+    :hover{
+        cursor: pointer;
+        background: orange;
+    }
+}
+
+.role-selection-box{
+    display: block;
+    width: 100%;
+    border-radius: 2px;
+}
+
+.register-btn{
+    display: block;
+    width: 100%;
+    background:green;
+    line-height: 2;
+    color: white;
+    text-align: center;
+    border-radius: 2px;
+    :hover{
+        cursor: pointer;
+        background: orange;
+    }
+}
+
+.login-box{
+    min-width: 300px;
+}
+
+
+.current-user-name{
+    float: right;
+    margin-right: 10px;
+    line-height: 30px;
+}
+
+.current-user-log-out{
+    float: right;
+    margin-right: 3%;
+}
+
+.tips{
+    color: red;
+    font-size: 13px;
+}

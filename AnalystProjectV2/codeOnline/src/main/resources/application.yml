@@ -1,0 +1,25 @@
+spring:
+  jackson:
+    date-format: yyyy-MM-dd
+    time-zone: GMT+8
+    serialization:
+      write-dates-as-timestamps: false
+  datasource:
+    url: jdbc:mysql://localhost/codeOnlineDataBase?serverTimezone=UTC
+    dbcp2.validation-query: select 1
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: wwyyww5552425.
+  rabbitmq:
+    virtual-host: /
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+    listener:
+      simple:
+        concurrency: 10
+        max-concurrency: 20
+        prefetch: 50
+server:
+  port: 8080

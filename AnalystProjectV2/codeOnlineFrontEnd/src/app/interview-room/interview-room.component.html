@@ -1,0 +1,61 @@
+
+
+
+<div class="ui-g" *ngIf="logined">
+  
+<!--Language selector-->
+    <div class="ui-g-12">
+        <p-dropdown [options]="languageList" [(ngModel)]="selectedLanguage"></p-dropdown>
+
+        <p-button label="Run" icon="pi pi-replay" iconPos="left" (click) = "runCodes()" id="code-run" *ngIf="edit_permission"></p-button>
+
+    </div>
+
+  <!-- codes editor-->
+<div class="ui-g-6">
+
+<div *ngFor="let item of languageList" class="ui-g-12" >
+    <div *ngIf="selectedLanguage.name == item.value.name">
+        <ngx-codemirror #codemirror style="display: block;"
+        [options]="item.value.option"
+        [(ngModel)]="item.value.content"
+        >
+      </ngx-codemirror>
+    </div>
+</div>
+<!--         (ngModelChange)="setEditorContent($event)"  -->
+<!--codes submit-->
+<div class="ui-g-12" *ngIf="codeExecuted">
+
+        <div id="result-box">
+            {{executedResult}}
+        </div>
+
+</div>
+
+
+
+
+</div>
+   <div class="ui-g-6">
+    <app-chat-room></app-chat-room>
+</div>
+
+    
+    
+</div>
+
+
+
+
+<p-blockUI  [blocked]="!logined">
+    <i class="pi pi-spin pi-spinner" style="position:absolute;top:35%;left:50%;font-size: 200px; color: white;"></i>
+</p-blockUI>
+
+
+
+
+
+
+
+

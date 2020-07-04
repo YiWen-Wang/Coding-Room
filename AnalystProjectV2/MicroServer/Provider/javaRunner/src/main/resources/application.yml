@@ -1,0 +1,31 @@
+server:
+  port: 8011
+  servlet:
+    session:
+      timeout: 30m
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://119.45.145.247:8003/eureka
+spring:
+  application:
+    name: MICROSERVICE-JAVARUNNER
+  redis:
+    host: 119.45.145.247
+    port: 6379
+    timeout: 1000ms
+    lettuce:
+      pool:
+        max-active: 8
+        max-wait: -1ms
+        max-idle: 8
+        min-idle: 0
+    database: 0
+    password:
+  jackson:
+    date-format: yyyy-MM-dd
+    time-zone: GMT+8
+    serialization:
+      write-dates-as-timestamps: false

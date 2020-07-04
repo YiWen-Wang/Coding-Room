@@ -1,0 +1,54 @@
+
+
+    <div class="ui-g-5 ui-s-4"></div> 
+
+    <!--login box-->
+    <div class="ui-g-2 ui-s-4 login-box">
+
+
+
+    <div><h1>Register</h1></div>
+
+<div class="login-item">
+    <div class="ui-inputgroup">
+        <span class="ui-inputgroup-addon"  style="background:white;"  ><i class="pi pi-user" style="line-height: 1.25;color: green;"></i></span>
+        <input type="text" pInputText placeholder="Username"  [(ngModel)] = "userName" style="width: 100%;"/>         
+    </div>
+
+</div>
+
+<div class="login-item">
+    
+    <div class="ui-inputgroup">
+        <span class="ui-inputgroup-addon" style="background:white;"><i class="pi pi-lock" style="line-height: 1.25;color:green;   "></i></span>
+        <input type="text" pInputText placeholder="Password" type="password" [(ngModel)] = "password" style="width: 100%;"/>         
+    </div>
+
+</div>
+
+<div class="login-item">
+    
+    <div class="ui-inputgroup">
+        <span class="ui-inputgroup-addon" style="background:white;"><i class="pi pi-lock" style="line-height: 1.25;color:green;   "></i></span>
+        <input type="text" pInputText placeholder="Confirm Password" type="password" [(ngModel)] = "confirmPassword" style="width: 100%;"/>         
+    </div>
+    <div class="tips" *ngIf = "confirmPassword!=undefined && confirmPassword != password">
+        Not equal to password typed above
+    </div>
+
+</div>
+
+
+
+<div class="login-item">
+
+    <p-dropdown [options]="selectedRole" [(ngModel)]="role" placeholder="Select Role" optionLabel="name" class="role-selection-box"></p-dropdown>
+
+</div>
+
+
+
+
+    <div (click)="register()" class="login-btn"> <p> Register</p></div>
+
+</div>

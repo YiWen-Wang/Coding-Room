@@ -1,0 +1,52 @@
+
+
+<div *ngIf = "unlogined" class="ui-g">
+
+    <div class="ui-g-5 ui-s-4"></div> 
+
+    <!--login box-->
+    <div class="ui-g-2 ui-s-4 login-box">
+
+
+
+    <div><h1>Interview Room</h1></div>
+
+<div class="login-item">
+    <div class="ui-inputgroup">
+        <span class="ui-inputgroup-addon"  style="background:white;"  ><i class="pi pi-user" style="line-height: 1.25;color: green;"></i></span>
+        <input type="text" pInputText placeholder="Username"  [(ngModel)] = "userName" style="width: 100%;"/>         
+    </div>
+
+</div>
+
+<div class="login-item">
+    
+    <div class="ui-inputgroup">
+        <span class="ui-inputgroup-addon" style="background:white;"><i class="pi pi-lock" style="line-height: 1.25;color:green;   "></i></span>
+        <input type="text" pInputText placeholder="Password" type="password" [(ngModel)] = "password" style="width: 100%;"/>         
+    </div>
+
+</div>
+
+
+    <div (click)="login()" class="login-btn"> <p>Login In</p></div>
+
+</div>
+
+
+</div>
+
+
+<div  *ngIf = "!unlogined" id="user-login-succeed-options">
+    <div class="current-user-log-out">
+        <p-button label="log out" (click) = "logOut()" ></p-button>
+    </div>
+        <div class="current-user-name right-float">{{userName}} </div>
+        <div style="clear: both;"></div>
+</div>
+
+
+
+
+
+

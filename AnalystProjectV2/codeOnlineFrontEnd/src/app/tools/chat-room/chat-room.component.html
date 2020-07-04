@@ -1,0 +1,73 @@
+<div class="ui-g">
+
+
+
+
+
+
+
+    <div class="ui-g-9" id="communication-box">
+        <!-- chat message display area-->
+        <div id="message-output">
+            <div class="ui-g-12"> 
+                
+                <p-scrollPanel [style]="{width: '100%', height: '50vh'}" styleClass="custombar1" id="message-output-entity"  >
+                    <div *ngFor="let message of chatHistory">
+
+                        <div  class="ui-g-12" >
+                            <div *ngIf="!message.self" class="other-sent msg-send">
+                                {{message.sender}} : {{message.content}}
+                            </div>
+                        </div>
+                        
+                        <div class="ui-g-12">
+                            <div  *ngIf="message.self" class="self-sent msg-send">
+                                {{message.content}} 
+                            </div>
+                        </div>
+     
+
+                    </div>
+
+                </p-scrollPanel>
+            
+            </div>
+
+        </div>
+    
+        <!-- user message input box -->
+        <div id="message-input">
+            <div class="ui-g-12" id="user-input-area">
+
+                <textarea pInputTextarea [(ngModel)] = "userInput"> </textarea>
+
+            </div>
+            <div class="button group" class="ui-g-12" id="user-input-button-group"> 
+
+                <button pButton type="button" label="Send" class="ui-button-rounded" style="float: right;" (click) = "sendMessageByUser()"></button>
+
+            </div>
+        
+        </div>
+
+
+    </div>
+
+    
+    <div class="ui-g-3" id="member-list">
+
+        <!-- iterate start-->
+        <div *ngFor="let user of allUser" id="user-item">
+            <div class="online-status" *ngIf="user.userStatus.userStatus == 1"></div>
+            <div class="offline-status" *ngIf="user.userStatus.userStatus == 0"></div>
+            <div class="user-list-display">
+                <div class="user-list-display-name-box"> {{user.userName}}</div>
+            </div>
+            <!-- iterate end-->
+        </div>
+
+
+    </div>
+
+</div>
+

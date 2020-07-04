@@ -1,0 +1,27 @@
+.info-box{
+    margin-top: 10x;
+    line-height: 20px;
+    font-size: 15px;
+}
+
+.added-item{
+    margin-top: 3px;
+    background:#F7F7F7;
+    width: 150px;
+    border-radius: 1px;
+    font-size: 15px;
+    line-height: 30px;
+    i{
+        color: red;
+        font-size: 1.5em;
+        margin-right: 10px;
+        z-index: 999;
+    }
+    i:hover{
+        cursor: pointer;
+    }
+}
+
+#room-btn{
+    margin-top: 15px;
+}

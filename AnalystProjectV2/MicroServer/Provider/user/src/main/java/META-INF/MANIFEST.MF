@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Main-Class: com.citi.codeOnline.microServer.provider.user.UserApplicatio
+ n
+
